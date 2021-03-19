@@ -14,6 +14,8 @@
                   <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuario" v-model="usuario">
                   <input type="text" id="password" class="fadeIn third" name="login" placeholder="Password" v-model="password">
                   <input type="submit" class="fadeIn fourth" value="Log In">
+                  
+
                 </form>
 
                 <!-- Remind Passowrd -->
@@ -28,7 +30,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+//import axios from 'axios';
 export default {
   name: 'Home',
   components: {
@@ -42,7 +44,7 @@ export default {
     }
   },
   methods:{
-    login(){
+    /*login(){
         let json = {
           "usuario" : this.usuario,
           "password": this.password
@@ -50,13 +52,19 @@ export default {
         axios.post('http://httpbin.org/post', json)
         .then( data =>{
           if(data.data.statu == "ok"){
+           localStorage.token = data.data.result.token;
            console.log("todo correcto");
           }else{
             this.error = true;
             this.error_msg = data.data.result.error_msg;
           }
         })
-    }
+    },*/
+    login() {
+           console.log("Login is working........");
+           this.$router.push('dashboard');
+       }
+    
   }
 }
 </script>
